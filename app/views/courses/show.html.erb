@@ -29,6 +29,8 @@
   <strong>Upper limit:</strong>
   <%= @course.upper_limit %>
 </p>
+<%= render partial: 'participant_list', locals: { participants: Participant.where(course_id: @course.id)} %>
+<%= render partial: 'new_participant', locals: { participant: Participant.new(course_id: @course.id) } %>
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
